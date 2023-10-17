@@ -10,19 +10,19 @@ func main() {
 	var counter = 0
 
 	wg := new(sync.WaitGroup)
-	m := sync.Mutex{}
+	//m := sync.Mutex{}
 
 	for i := 0; i < 3; i++ {
 		wg.Add(1)
 		go func() {
 			defer wg.Done()
-			m.Lock()
+			//	m.Lock()
 			j := counter
 			time.Sleep(time.Millisecond)
 			j = j + 1
 
 			counter = j
-			m.Unlock()
+			//	m.Unlock()
 		}()
 	}
 	wg.Wait()
